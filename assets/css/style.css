@@ -1,0 +1,1470 @@
+/* ==========================================================================
+   Gabriel Kaplan — estilos propios. Mobile-first, sin frameworks.
+   Paleta y tipografía tomadas de coaching.zenhabits.net.
+   Regla: ningún color fijo fuera de las variables.
+   ========================================================================== */
+
+/* ---- Fuentes autoalojadas (subset latin) ---- */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces-normal.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces-italic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/assets/fonts/newsreader-normal.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/assets/fonts/newsreader-italic.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/ibm-plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/assets/fonts/ibm-plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Variables ---- */
+:root {
+  --paper: #f2ede3;
+  --paper-warm: #ece5d7;
+  --paper-deep: #e5dcc9;
+  --ink: #1a1714;
+  --ink-soft: #3d362e;
+  --ink-quiet: #6b6258;
+  --rule: #c8bfb1;
+  --wash: #bfb29c;
+  --clay: #a24a2c;
+  --clay-deep: #7a3620;
+  --gold: #b08a3e;
+  --velo-claro: rgba(160, 110, 50, 0.05);
+  --velo-oscuro: rgba(120, 80, 40, 0.06);
+  --gusto-fondo: rgba(162, 74, 44, 0.1);
+  --spoilers-texto: white;
+  --spoilers-etiqueta: wheat;
+  --spoilers-borde: black;
+
+  --f-titulo: "Fraunces", Georgia, serif;
+  --f-texto: "Newsreader", Georgia, serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --ancho: 40rem;
+  --ancho-cabecera: 60rem;
+  color-scheme: light;
+}
+
+/* ---- Base ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paper);
+  background-image: radial-gradient(circle at 15% 5%, var(--velo-claro) 0%, transparent 45%), radial-gradient(circle at 85% 95%, var(--velo-oscuro) 0%, transparent 45%);
+  color: var(--ink-soft);
+  font-family: var(--f-texto);
+  font-size: 1.125rem;
+  font-weight: 380;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+  padding-block: 2.5rem 4rem;
+}
+
+::selection {
+  background: var(--clay);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: var(--wash);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+
+a:hover {
+  color: var(--clay);
+  text-decoration-color: var(--clay);
+}
+
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.envoltorio {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.envoltorio--ancho {
+  max-width: var(--ancho-cabecera);
+}
+
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+}
+
+.saltar:focus {
+  top: 1rem;
+}
+
+/* ---- Etiquetas pequeñas en mono ---- */
+.etiqueta {
+  margin: 0 0 0.75rem;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.etiqueta a {
+  color: var(--clay);
+  text-decoration: none;
+}
+
+.etiqueta a:hover {
+  color: var(--clay-deep);
+  text-decoration: underline;
+}
+
+.etiqueta--titulo {
+  margin-bottom: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ---- Cabecera ---- */
+/* La línea inferior va en la fila (dentro del envoltorio), no en el header:
+   así no se estira de punta a punta, como en coaching.zenhabits.net. */
+.cabecera__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  padding-block: 2.75rem 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.marca {
+  font-family: var(--f-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.marca em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clay);
+}
+
+/* Al pasar el mouse se invierten los colores: lo negro pasa a clay y viceversa. */
+.marca:hover {
+  color: var(--clay);
+}
+
+.marca:hover em {
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.25rem;
+  /* Compensa el padding de los links para que el texto quede alineado con la marca. */
+  margin-inline: -0.7rem;
+}
+
+.nav a,
+.migas,
+.pie,
+.paginacion {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  padding: 0.4rem 0.7rem;
+  border-bottom: 2px solid transparent;
+  border-radius: 2px;
+  color: var(--ink-quiet);
+  text-decoration: none;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+/* Al pasar el mouse (o con el teclado): color clay, fondo y subrayado. */
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--clay);
+  background: var(--paper-warm);
+  border-bottom-color: var(--clay);
+}
+
+/* La sección en la que estás: texto oscuro, más grueso, fondo y subrayado clay. */
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 500;
+  background: var(--paper-deep);
+  border-bottom-color: var(--clay);
+}
+
+.nav a:active {
+  background: var(--paper-deep);
+}
+
+/* ---- Migas de pan ---- */
+.migas {
+  margin-bottom: 2rem;
+  font-size: 0.78rem;
+  color: var(--ink-quiet);
+}
+
+.migas ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* El separador va al final de cada tramo (no al principio) para que, si la ruta salta de línea, no quede un › colgado. */
+.migas li:not(:last-child)::after {
+  content: "›";
+  margin-inline: 0.2rem 0.35rem;
+  color: var(--ink-quiet);
+}
+
+/* Los enlaces se leen como enlaces: clay y subrayados. Al pasar el mouse: texto oscuro sobre fondo. */
+.migas a {
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+  color: var(--clay);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.migas a:hover,
+.migas a:focus-visible {
+  background: var(--paper-deep);
+  color: var(--ink);
+  text-decoration-thickness: 2px;
+}
+
+/* Dónde estás: texto oscuro, más grueso y sin subrayado. */
+.migas [aria-current="page"] {
+  padding: 0.2rem 0.4rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ---- Listado de posts ---- */
+.entrada {
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.entrada:last-of-type {
+  border-bottom: 0;
+}
+
+.entrada__imagen {
+  display: block;
+  margin-bottom: 1.25rem;
+  background: var(--paper-warm);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.entrada__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.entrada__titulo {
+  margin: 0 0 0.6rem;
+  font-family: var(--f-titulo);
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.entrada__titulo a {
+  text-decoration: none;
+}
+
+.entrada__titulo a:hover {
+  color: var(--clay);
+}
+
+.entrada__resumen {
+  margin: 0;
+}
+
+/* ---- Paginación ---- */
+.paginacion {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-quiet);
+}
+
+.paginacion a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.paginacion a:hover {
+  color: var(--clay);
+}
+
+.paginacion__sig {
+  text-align: right;
+}
+
+/* ---- Post / páginas ---- */
+.post__cabecera {
+  margin-bottom: 2rem;
+}
+
+.post__titulo {
+  margin: 0 0 1rem;
+  font-family: var(--f-titulo);
+  font-size: clamp(2rem, 7vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.post__titulo--centro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.post__resumen {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink-quiet);
+}
+
+.portada {
+  margin: 0 0 2rem;
+}
+
+.portada img {
+  width: 100%;
+  background: var(--paper-warm);
+}
+
+.cuerpo {
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.cuerpo > :first-child {
+  margin-top: 0;
+}
+
+.cuerpo p,
+.cuerpo ul,
+.cuerpo ol {
+  margin: 0 0 1.25rem;
+}
+
+.cuerpo a {
+  color: var(--clay);
+  text-decoration-color: var(--clay);
+}
+
+.cuerpo a:hover {
+  color: var(--clay-deep);
+}
+
+.cuerpo h2,
+.cuerpo h3,
+.cuerpo h4 {
+  margin: 2.25rem 0 0.75rem;
+  font-family: var(--f-titulo);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.cuerpo h2 {
+  font-size: 1.7rem;
+}
+
+.cuerpo h3 {
+  font-size: 1.35rem;
+}
+
+.cuerpo h4 {
+  font-size: 1.15rem;
+}
+
+.cuerpo strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.cuerpo li {
+  margin-bottom: 0.35rem;
+}
+
+.cuerpo blockquote {
+  margin: 1.75rem 0;
+  padding: 0.1rem 0 0.1rem 1.25rem;
+  border-left: 2px solid var(--clay);
+  font-style: italic;
+  color: var(--ink-quiet);
+}
+
+.cuerpo blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.cuerpo img {
+  margin: 1.75rem 0;
+}
+
+.cuerpo hr {
+  margin: 2.5rem auto;
+  width: 3rem;
+  border: 0;
+  border-top: 1px solid var(--wash);
+}
+
+.cuerpo code {
+  padding: 0.1em 0.35em;
+  background: var(--paper-warm);
+  font-family: var(--f-mono);
+  font-size: 0.82em;
+}
+
+.cuerpo pre {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  background: var(--paper-warm);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.cuerpo pre code {
+  padding: 0;
+  background: none;
+}
+
+.cuerpo table {
+  display: block;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.cuerpo th,
+.cuerpo td {
+  padding: 0.5rem 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+
+/* ---- Tags / chips ---- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips--centro {
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+.chips a,
+.chips span {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--wash);
+  border-radius: 999px;
+  background: var(--paper-deep);
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.chips a:hover {
+  border-color: var(--clay);
+  background: var(--clay);
+  color: var(--paper);
+}
+
+.chips .chips__n {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  transition: color 0.15s;
+}
+
+/* Sobre el fondo clay del hover, el número tiene que leerse: hereda el color claro del chip. */
+.chips a:hover .chips__n,
+.chips a:focus-visible .chips__n {
+  color: inherit;
+}
+
+.chips a:focus-visible {
+  border-color: var(--clay);
+  background: var(--clay);
+  color: var(--paper);
+}
+
+/* Tags dentro de las tarjetas de los listados. */
+.chips--chicos {
+  gap: 0.4rem;
+  margin: 0.9rem 0 0;
+}
+
+.chips--chicos a,
+.chips--chicos span {
+  padding: 0.2rem 0.7rem;
+  font-size: 0.72rem;
+}
+
+/* ---- Post anterior / siguiente ---- */
+.vecinos {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+.vecinos a {
+  display: block;
+  font-family: var(--f-titulo);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.vecinos a:hover {
+  color: var(--clay);
+}
+
+.vecinos .etiqueta {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 400;
+}
+
+.vecinos__sig {
+  text-align: right;
+}
+
+/* ---- Índice de hobbies ---- */
+.indice {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.indice li {
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.indice li:last-child {
+  border-bottom: 0;
+}
+
+.indice p {
+  margin: 0 0 0.5rem;
+}
+
+.indice__titulo {
+  margin: 0 0 0.35rem;
+  font-family: var(--f-titulo);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.indice__titulo a {
+  text-decoration: none;
+}
+
+.indice__titulo a:hover {
+  color: var(--clay);
+}
+
+/* ---- Archivos ---- */
+.archivo {
+  margin-bottom: 2rem;
+}
+
+.archivo__anio {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-family: var(--f-titulo);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.archivo__mes {
+  margin: 2rem 0 0.5rem;
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.archivo__lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archivo__lista li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  align-items: baseline;
+  gap: 0.15rem 0.5rem;
+  /* El padding horizontal se compensa con el margen negativo: el texto no se mueve, pero el fondo del hover respira. */
+  margin-inline: -0.75rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 2px;
+  transition: color 0.15s, background-color 0.15s, box-shadow 0.15s;
+}
+
+/* Toda la fila es clickeable: el enlace del título se estira sobre ella. */
+.archivo__lista li > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Hobby del post: debajo del título en pantallas chicas, a la derecha en las grandes. */
+.archivo__hobby {
+  grid-column: 2;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.archivo__lista time {
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  color: var(--ink-quiet);
+  transition: color 0.15s;
+}
+
+/* Hover y foco: el mismo estilo que los links del menú (texto clay, fondo suave y subrayado clay de 2px). */
+.archivo__lista li:hover,
+.archivo__lista li:focus-within {
+  background: var(--paper-warm);
+  box-shadow: inset 0 -2px 0 var(--clay);
+}
+
+.archivo__lista li:hover a,
+.archivo__lista li:focus-within a,
+.archivo__lista li:hover time {
+  color: var(--clay);
+  text-decoration-color: var(--clay);
+}
+
+.archivo__lista li:active {
+  background: var(--paper-deep);
+}
+
+/* ---- Mangas: series y tomos (portadas verticales) ---- */
+.intro-centro {
+  margin: -0.5rem auto 2.5rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-quiet);
+}
+
+.fichas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ficha {
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.ficha:last-child {
+  border-bottom: 0;
+}
+
+.ficha--con-imagen {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.ficha__imagen {
+  display: block;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--paper-warm);
+}
+
+.ficha__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ficha__titulo {
+  margin: 0 0 0.4rem;
+  font-family: var(--f-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.ficha__titulo a {
+  text-decoration: none;
+}
+
+.ficha__titulo a:hover {
+  color: var(--clay);
+}
+
+.ficha__descripcion {
+  margin: 0 0 0.75rem;
+}
+
+.ficha__texto .etiqueta {
+  margin-bottom: 0.5rem;
+}
+
+.ficha__texto .etiqueta:last-child {
+  margin-bottom: 0;
+}
+
+.entidad__cabecera {
+  margin-bottom: 2rem;
+}
+
+.entidad__cabecera--con-imagen {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.entidad__portada {
+  margin: 0;
+  max-width: 9rem;
+}
+
+.entidad__portada img {
+  width: 100%;
+  background: var(--paper-warm);
+}
+
+/* Imagen de una banda: debajo de la descripción, a todo el ancho de la columna. */
+.entidad__imagen {
+  margin: 1.5rem 0 0;
+}
+
+.entidad__imagen img {
+  width: 100%;
+  background: var(--paper-warm);
+}
+
+.etiqueta--seccion {
+  margin: 2.5rem 0 1.5rem;
+}
+
+/* Ficha técnica de una serie. */
+.ficha-tecnica {
+  margin: 0 0 1rem;
+  padding: 1.25rem 0;
+  border-block: 1px solid var(--rule);
+}
+
+.ficha-tecnica > div {
+  display: grid;
+  gap: 0.15rem;
+  padding-block: 0.5rem;
+}
+
+.ficha-tecnica dt {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.ficha-tecnica dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Integrantes de una banda: lista sin viñetas, con los años en gris. */
+.integrantes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.integrantes li + li {
+  margin-top: 0.3rem;
+}
+
+.integrantes__anios {
+  color: var(--ink-quiet);
+  font-size: 0.95em;
+}
+
+/* Tarjeta de un tomo en los listados: portada vertical a la izquierda. */
+.entrada--tomo {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.entrada--tomo .entrada__imagen {
+  aspect-ratio: 2 / 3;
+  margin-bottom: 0;
+}
+
+/* Portadas cuadradas (discos): sin recortar, 1:1. */
+.ficha--cuadrada .ficha__imagen,
+.entrada--disco .entrada__imagen {
+  aspect-ratio: 1 / 1;
+}
+
+/* Cabecera de un post de tomo: portada vertical y texto. */
+.post__cabecera--tomo {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.portada--vertical {
+  margin: 0;
+  max-width: 9rem;
+}
+
+.vecinos + .vecinos {
+  margin-top: 1.5rem;
+}
+
+/* ---- Compatibilidad (temas que me gustaron / temas totales) ---- */
+.compat {
+  margin: 0.75rem 0 1rem;
+}
+
+.compat__texto {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.compat__texto strong {
+  font-family: var(--f-titulo);
+  font-size: 1.35em;
+  font-weight: 600;
+  color: var(--clay);
+}
+
+.compat__barra {
+  height: 4px;
+  max-width: 18rem;
+  background: var(--rule);
+}
+
+.compat__barra span {
+  display: block;
+  height: 100%;
+  background: var(--clay);
+}
+
+.compat--chica {
+  margin: 0.4rem 0 0.6rem;
+}
+
+.compat--chica .compat__texto {
+  font-size: 0.95rem;
+}
+
+.compat-banda {
+  margin: 0 0 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.compat-banda .etiqueta {
+  margin-bottom: 0.25rem;
+}
+
+.compat-banda__nota {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-quiet);
+}
+
+/* Pestañas de las vistas de /discos/. */
+.pestanas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.pestanas a {
+  padding-block: 0.25rem;
+  border-bottom: 1px solid transparent;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-quiet);
+}
+
+.pestanas a:hover,
+.pestanas a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--clay);
+}
+
+/* Lista de temas de un disco. */
+.temas {
+  margin-top: 2.5rem;
+}
+
+.temas__lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.temas__lista li {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr auto;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-quiet);
+}
+
+.temas__n {
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  color: var(--ink-quiet);
+}
+
+/* Los que me gustaron: fondo clay suave, borde a la izquierda, texto oscuro y más grueso. */
+.temas__lista .temas__gusto {
+  background: var(--gusto-fondo);
+  box-shadow: inset 3px 0 0 var(--clay);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.temas__lista .temas__gusto .temas__n {
+  color: var(--clay);
+}
+
+.temas__marca {
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--clay);
+}
+
+.temas__leyenda {
+  color: var(--clay);
+}
+
+/* Texto sólo para lectores de pantalla. */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Juegos ---- */
+/* Portadas de juegos: de tamaño variable, así que se ven enteras sobre un fondo. */
+.ficha--juego .ficha__imagen {
+  aspect-ratio: 3 / 4;
+}
+
+.ficha--juego .ficha__imagen img {
+  object-fit: contain;
+}
+
+.ficha__hasta,
+.entrada__hasta {
+  margin: 0 0 0.6rem;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+.ficha__hasta strong,
+.entrada__hasta strong {
+  font-weight: 600;
+  color: var(--clay);
+}
+
+/* "Hasta dónde llegué", destacado en la entrada del diario. */
+.hasta {
+  margin: 0 0 2rem;
+  padding: 0.85rem 1.1rem;
+  border-left: 3px solid var(--clay);
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+.hasta .etiqueta {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--clay);
+}
+
+/* ---- Estado de un manga (Leyendo / En pausa / Finalizado / Abandonado) ---- */
+.ficha__estado {
+  margin: 0 0 0.75rem;
+}
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.8rem;
+  border: 1px solid var(--wash);
+  border-radius: 999px;
+  background: var(--paper-deep);
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* El punto de color cambia con el estado. */
+.estado::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--ink-quiet);
+}
+
+.estado--leyendo::before {
+  background: var(--clay);
+}
+
+.estado--en-pausa::before {
+  background: var(--gold);
+}
+
+.estado--finalizado::before {
+  background: var(--ink);
+}
+
+.estado--abandonado {
+  color: var(--ink-quiet);
+}
+
+.estado--abandonado::before {
+  background: var(--wash);
+}
+
+/* Leyenda de spoilers en los posts de tomos. */
+.spoilers {
+  margin: 0 0 2rem;
+  padding: 0.85rem 1.1rem;
+  border-left: 3px solid var(--spoilers-borde);
+  background: var(--clay-deep);
+  color: var(--spoilers-texto);
+}
+
+.spoilers .etiqueta {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--spoilers-etiqueta);
+  font-weight: 600;
+}
+
+/* ---- Botón "Escuchar en YouTube Music" ---- */
+.escuchar {
+  margin: 0.25rem 0 0;
+}
+
+.boton {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--clay);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--clay);
+  transition: color 0.15s, background-color 0.15s;
+}
+
+/* El ↗ avisa que abre en otra pestaña. */
+.boton::after {
+  content: " ↗";
+}
+
+.boton:hover,
+.boton:focus-visible {
+  background: var(--clay);
+  color: var(--paper);
+}
+
+.ficha__escuchar {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.ficha__escuchar a::after {
+  content: " ↗";
+}
+
+/* ---- Discografía de una banda: la misma tabla que /archivos/ (año, nombre y tipo a la derecha) ---- */
+.archivo__lista.discografia li {
+  grid-template-columns: 4rem 1fr;
+}
+
+/* Dentro del cuerpo de la banda: sin el color de enlace del texto ni el margen de las listas. */
+.cuerpo .archivo__lista li {
+  margin-bottom: 0;
+}
+
+.cuerpo .archivo__lista a {
+  color: inherit;
+  text-decoration-color: var(--wash);
+}
+
+.cuerpo .archivo__lista li:hover a,
+.cuerpo .archivo__lista li:focus-within a {
+  color: var(--clay);
+  text-decoration-color: var(--clay);
+}
+
+/* Las filas sin enlace no son clickeables: no reaccionan al hover. */
+.discografia li:not(.con-enlace):hover {
+  background: none;
+  box-shadow: none;
+}
+
+.discografia li:not(.con-enlace):hover time {
+  color: var(--ink-quiet);
+}
+
+/* Los discos con enlace a un post se destacan: nombre en clay, grueso y subrayado, y el año en oscuro.
+   Los que son sólo texto quedan discretos (todo en gris, incluso el tipo). */
+.cuerpo .discografia li.con-enlace a {
+  color: var(--clay);
+  font-weight: 600;
+  text-decoration-color: var(--clay);
+  text-decoration-thickness: 2px;
+}
+
+.discografia li.con-enlace time {
+  color: var(--ink);
+}
+
+.discografia li.con-enlace:hover time,
+.discografia li.con-enlace:focus-within time {
+  color: var(--clay);
+}
+
+.discografia li:not(.con-enlace),
+.discografia li:not(.con-enlace) time,
+.discografia li:not(.con-enlace) .archivo__hobby {
+  color: var(--ink-quiet);
+}
+
+/* Ranking de discos: tabla con la portada en lugar de la fecha. */
+.archivo__lista.ranking li {
+  grid-template-columns: 4.5rem 1fr;
+  align-items: center;
+  gap: 0.15rem 1rem;
+}
+
+.ranking__portada {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: cover;
+  background: var(--paper-warm);
+}
+
+/* En pantallas chicas la compatibilidad pasa debajo del nombre y la portada ocupa las dos filas. */
+@media (max-width: 39.99rem) {
+  .ranking__portada {
+    grid-row: 1 / span 2;
+  }
+}
+
+/* Contador de posts sobre un listado (por ejemplo, Discos > Todos los discos). */
+.contador {
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.contador strong {
+  margin-right: 0.35rem;
+  font-family: var(--f-titulo);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--clay);
+}
+
+/* ---- Pie ---- */
+.pie {
+  color: var(--ink-quiet);
+}
+
+.pie__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  padding-block: 1.75rem 2.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.pie p {
+  margin: 0;
+}
+
+.pie a {
+  text-decoration: none;
+}
+
+.pie a:hover {
+  color: var(--clay);
+}
+
+.pie__derecha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.redes {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.redes a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--ink-soft);
+}
+
+.redes svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---- Pantallas más grandes ---- */
+@media (min-width: 40rem) {
+  body {
+    font-size: 1.19rem;
+  }
+
+  main {
+    padding-block: 3.5rem 5rem;
+  }
+
+  .nav {
+    gap: 0.25rem 0.5rem;
+  }
+
+  .archivo__lista li {
+    grid-template-columns: 6.5rem 1fr auto;
+  }
+
+  .archivo__hobby {
+    grid-column: auto;
+    text-align: right;
+  }
+
+  .archivo__lista.discografia li {
+    grid-template-columns: 4rem 1fr auto;
+  }
+
+  .archivo__lista.ranking li {
+    grid-template-columns: 4.5rem 1fr auto;
+  }
+
+  .vecinos {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .ficha--con-imagen {
+    grid-template-columns: 7rem 1fr;
+    gap: 1.75rem;
+  }
+
+  .entrada--tomo {
+    grid-template-columns: 8rem 1fr;
+    gap: 1.75rem;
+  }
+
+  .entidad__cabecera--con-imagen,
+  .post__cabecera--tomo {
+    grid-template-columns: 10rem 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .entidad__portada,
+  .portada--vertical {
+    max-width: none;
+  }
+
+  .ficha-tecnica > div {
+    grid-template-columns: 11rem 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
