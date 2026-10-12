@@ -1144,7 +1144,8 @@ img {
   margin: 0 0 0.75rem;
 }
 
-.estado {
+.estado,
+.opinion {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1186,6 +1187,44 @@ img {
 
 .estado--abandonado::before {
   background: var(--wash);
+}
+
+/* Opinión sobre un tomo: la misma etiqueta que el estado, con emojis. */
+.opinion::before {
+  content: "✅😁";
+  font-size: 0.9rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.opinion--no-me-gusto::before {
+  content: "❌😡";
+}
+
+/* Más presencia que el estado: más grande, en negrita y con fondo de color. */
+.opinion {
+  gap: 0.6rem;
+  padding: 0.45rem 1.1rem;
+  border-width: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.opinion::before {
+  font-size: 1.25rem;
+}
+
+.opinion--me-gusto {
+  border-color: #2f7d3b;
+  background: #e3f2e1;
+  color: #1d5a27;
+}
+
+.opinion--no-me-gusto {
+  border-color: #b3342b;
+  background: #f9e1de;
+  color: #8a231c;
 }
 
 /* Leyenda de spoilers en los posts de tomos. */
