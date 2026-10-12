@@ -19,7 +19,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=1791777504012">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1791782307568">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -44,19 +44,31 @@
   <ol>
     <li><a href="/">Inicio</a></li>
     <li><a href="/discos/">Discos</a></li>
-    <li aria-current="page">Todos los discos</li>
+    <li aria-current="page">Todos los discos por compatibilidad</li>
   </ol>
 </nav>
 
     <h1 class="post__titulo post__titulo--centro">Discos</h1>
-<nav class="pestanas" aria-label="Vistas de discos">
-  <a href="/discos/">Bandas A–Z</a>
-  <a href="/discos/compatibilidad/">Bandas por compatibilidad</a>
-  <a href="/discos/ranking/" aria-current="page">Todos los discos</a>
+<nav class="selector" aria-label="Vistas de discos">
+  <div class="selector__grupo">
+    <span class="selector__etiqueta" id="selector-mostrar">Mostrar</span>
+    <div class="selector__opciones" role="group" aria-labelledby="selector-mostrar">
+      <a href="/discos/compatibilidad/">Bandas</a>
+      <a href="/discos/ranking/" aria-current="page">Discos</a>
+    </div>
+  </div>
+  <div class="selector__grupo">
+    <span class="selector__etiqueta" id="selector-orden">Ordenar por</span>
+    <div class="selector__opciones" role="group" aria-labelledby="selector-orden">
+      <a href="/discos/todos/">Alfabético</a>
+      <a href="/discos/ranking/" aria-current="page">Compatibilidad</a>
+    </div>
+  </div>
 </nav>
 
 <p class="intro-centro">Todos los discos escuchados, de mayor a menor compatibilidad.</p>
 <p class="contador" aria-live="polite"><strong>3</strong> discos</p>
+
 <ol class="archivo__lista ranking">
   <li>
     <img class="ranking__portada" src="/assets/img/posts/discos/kiss/kiss.jpg" alt="" loading="lazy">
@@ -74,6 +86,7 @@
     <span class="archivo__hobby">60% · 6/10 temas</span>
   </li>
 </ol>
+
 
   </main>
   <footer class="pie">

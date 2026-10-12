@@ -104,6 +104,30 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Todo el texto corrido va justificado; hyphens: auto parte las palabras (el idioma está en <html lang>)
+   y evita los huecos grandes entre palabras. Los elementos centrados o alineados a la derecha lo
+   indican en su propia clase, que tiene prioridad sobre esta regla. */
+p,
+li,
+dd,
+blockquote {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Excepciones: navegación, migas, pie, etiquetas, tags y estados no son texto corrido. */
+nav p,
+nav li,
+.pie p,
+.pie li,
+.etiqueta,
+.chips li,
+.redes li,
+.ficha__estado {
+  text-align: left;
+  hyphens: manual;
+}
+
 main {
   flex: 1;
   padding-block: 2.5rem 4rem;
@@ -944,15 +968,56 @@ img {
   aspect-ratio: 1 / 1;
 }
 
+/* En el celular la portada del listado va arriba del título (no al costado, que deja un hueco
+   en blanco a la izquierda del texto), a todo el ancho y cuadrada. La del manga (vertical) se
+   recorta con object-fit: cover, sin deformarla, y se queda con la parte de arriba. */
+@media (max-width: 39.99rem) {
+  .entrada--tomo {
+    display: block;
+  }
+
+  .entrada--tomo .entrada__imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .entrada--tomo .entrada__imagen img {
+    object-position: center top;
+  }
+}
+
+/* En el celular, en los listados de series, bandas, tomos, discos y juegos la imagen va arriba, a
+   todo el ancho, y no al costado. Las verticales (tomos) se muestran cuadradas, recortadas sin
+   deformar; las cuadradas ya lo son; la del juego conserva su 3:4. */
+@media (max-width: 39.99rem) {
+  .ficha--con-imagen {
+    display: block;
+  }
+
+  .ficha--con-imagen .ficha__imagen {
+    margin-bottom: 1.25rem;
+  }
+
+  .ficha--con-imagen:not(.ficha--cuadrada):not(.ficha--juego) .ficha__imagen {
+    aspect-ratio: 1 / 1;
+  }
+
+  .ficha--con-imagen .ficha__imagen img {
+    object-position: center top;
+  }
+}
+
 /* Cabecera de un post de tomo: portada vertical y texto. */
 .post__cabecera--tomo {
   display: grid;
   gap: 1.5rem;
 }
 
+/* En el celular la portada del post va a todo el ancho, entera (sin recortar); desde 40rem queda
+   en una columna al costado del texto. */
 .portada--vertical {
   margin: 0;
-  max-width: 9rem;
 }
 
 .vecinos + .vecinos {
@@ -1014,29 +1079,88 @@ img {
 }
 
 /* Pestañas de las vistas de /discos/. */
-.pestanas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 1.5rem;
-  margin: 0 0 1.5rem;
+/* Selector de vistas de Discos: un solo panel con dos grupos de opciones excluyentes (estilo radio). */
+.selector {
+  max-width: 30rem;
+  margin: 0 auto 1.75rem;
+  border: 1px solid var(--wash);
+  border-radius: 0.4rem;
+  background: var(--paper-deep);
 }
 
-.pestanas a {
-  padding-block: 0.25rem;
-  border-bottom: 1px solid transparent;
+.selector__grupo {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 0.85rem 1.1rem;
+}
+
+.selector__grupo + .selector__grupo {
+  border-top: 1px solid var(--wash);
+}
+
+.selector__etiqueta {
   font-family: var(--f-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  text-decoration: none;
   color: var(--ink-quiet);
 }
 
-.pestanas a:hover,
-.pestanas a[aria-current="page"] {
+.selector__opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+}
+
+.selector a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding-block: 0.2rem;
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+/* El círculo es el "radio": vacío en las opciones disponibles, con punto en la elegida. */
+.selector a::before {
+  content: "";
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 2px solid var(--ink-quiet);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.selector a:hover {
   color: var(--ink);
-  border-bottom-color: var(--clay);
+}
+
+.selector a:hover::before {
+  border-color: var(--clay);
+}
+
+.selector a[aria-current="page"] {
+  font-weight: 700;
+  color: var(--ink);
+  cursor: default;
+}
+
+.selector a[aria-current="page"]::before {
+  border-color: var(--clay);
+  background: radial-gradient(circle, var(--clay) 0 38%, var(--paper) 42%);
+}
+
+@media (max-width: 39.99rem) {
+  .selector__grupo {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Lista de temas de un disco. */
@@ -1187,6 +1311,11 @@ img {
 
 .estado--abandonado::before {
   background: var(--wash);
+}
+
+/* Contador de mangas leídos y discos escuchados, debajo de los tags en los listados. */
+.entrada__numero {
+  margin: 0.9rem 0 0;
 }
 
 /* Opinión sobre un tomo: la misma etiqueta que el estado, con emojis. */
