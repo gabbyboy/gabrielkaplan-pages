@@ -1263,7 +1263,7 @@ img {
   color: var(--clay);
 }
 
-/* ---- Estado de un manga (Leyendo / En pausa / Finalizado / Abandonado) ---- */
+/* ---- Estado de un manga (Leyendo / Finalizado / Abandonado) ---- */
 .ficha__estado {
   margin: 0 0 0.75rem;
 }
@@ -1293,24 +1293,68 @@ img {
   background: var(--ink-quiet);
 }
 
-.estado--leyendo::before {
-  background: var(--clay);
+/* Un color por estado: leyendo naranja, finalizado verde, abandonado rojo. */
+.estado--leyendo,
+.estado--jugando {
+  border-color: #d9701a;
+  background: #fde7d0;
+  color: #8a3f08;
 }
 
-.estado--en-pausa::before {
-  background: var(--gold);
+.estado--leyendo::before,
+.estado--jugando::before {
+  background: #e8801f;
 }
 
-.estado--finalizado::before {
-  background: var(--ink);
+.estado--finalizado,
+.estado--terminado {
+  border-color: #2f7d3b;
+  background: #e3f2e1;
+  color: #1d5a27;
+}
+
+.estado--finalizado::before,
+.estado--terminado::before {
+  background: #2f7d3b;
 }
 
 .estado--abandonado {
-  color: var(--ink-quiet);
+  border-color: #b3342b;
+  background: #f9e1de;
+  color: #8a231c;
 }
 
 .estado--abandonado::before {
-  background: var(--wash);
+  background: #b3342b;
+}
+
+/* Puntaje de consenso de un juego (0-10), al lado del estado. */
+.puntaje {
+  margin-left: 0.5rem;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+/* Marca de un post en borrador. Sólo se ve en desarrollo: en producción los borradores no se publican. */
+.borrador-marca {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  border: 1px dashed #8a6d3b;
+  border-radius: 999px;
+  background: #fbf3dc;
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #7a5a12;
 }
 
 /* Contador de mangas leídos y discos escuchados, debajo de los tags en los listados. */
@@ -1364,6 +1408,43 @@ img {
   border-color: #b3342b;
   background: #f9e1de;
   color: #8a231c;
+}
+
+/* Versión chica de la etiqueta de opinión, para las filas de las tablas. */
+.opinion--chica {
+  gap: 0.4rem;
+  padding: 0.15rem 0.65rem;
+  border-width: 1px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.opinion--chica::before {
+  font-size: 0.95rem;
+}
+
+/* Tomos separados por opinión: un título por grupo (la etiqueta grande y la cantidad) y su tabla. */
+.grupo-opinion {
+  margin-bottom: 2.5rem;
+}
+
+.grupo-opinion__titulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1rem;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.grupo-opinion__sin,
+.grupo-opinion__n {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
 }
 
 /* Leyenda de spoilers en los posts de tomos. */
@@ -1488,6 +1569,7 @@ img {
   width: 4.5rem;
   height: 4.5rem;
   object-fit: cover;
+  object-position: center top;
   background: var(--paper-warm);
 }
 
