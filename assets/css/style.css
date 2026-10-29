@@ -1357,6 +1357,11 @@ img {
   color: #7a5a12;
 }
 
+/* Lista de juegos de una saga: el año va debajo del nombre, al lado de la portada. */
+.saga-juego time {
+  display: block;
+}
+
 /* Contador de mangas leídos y discos escuchados, debajo de los tags en los listados. */
 .entrada__numero {
   margin: 0.9rem 0 0;
