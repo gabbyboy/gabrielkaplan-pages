@@ -675,6 +675,16 @@ img {
   text-align: right;
 }
 
+.vecinos__titulo {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  text-align: left;
+}
+
 /* ---- Índice de hobbies ---- */
 .indice {
   margin: 0;
