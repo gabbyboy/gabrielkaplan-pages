@@ -4,22 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Idiomas — Gabriel Kaplan</title>
-  <meta name="description" content="Los idiomas que estoy estudiando y cuántos posts escribí de cada uno.">
+  <meta name="description" content="Todos los posts de los idiomas que estoy estudiando, del más nuevo al más viejo; se pueden filtrar por idioma.">
   <link rel="canonical" href="https://gabrielkaplan.net/idiomas/">
   <meta property="og:site_name" content="Gabriel Kaplan">
   <meta property="og:locale" content="es_AR">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Idiomas — Gabriel Kaplan">
-  <meta property="og:description" content="Los idiomas que estoy estudiando y cuántos posts escribí de cada uno.">
+  <meta property="og:description" content="Todos los posts de los idiomas que estoy estudiando, del más nuevo al más viejo; se pueden filtrar por idioma.">
   <meta property="og:url" content="https://gabrielkaplan.net/idiomas/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Idiomas — Gabriel Kaplan">
-  <meta name="twitter:description" content="Los idiomas que estoy estudiando y cuántos posts escribí de cada uno.">
+  <meta name="twitter:description" content="Todos los posts de los idiomas que estoy estudiando, del más nuevo al más viejo; se pueden filtrar por idioma.">
   <link rel="alternate" type="application/rss+xml" title="Gabriel Kaplan" href="/feed.xml">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=1794148678133">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1794239190242">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -32,13 +32,27 @@
         <a href="/discos/">Discos</a>
         <a href="/juegos/">Juegos</a>
         <a href="/idiomas/" aria-current="page">Idiomas</a>
-        <a href="/tags/">Tags</a>
-        <a href="/archivos/">Archivos</a>
-        <a href="/acerca/">Acerca de</a>
+        <details class="nav__mas">
+          <summary>Más</summary>
+          <div class="nav__panel">
+            <a href="/tags/">Tags</a>
+            <a href="/archivos/">Archivos</a>
+            <a href="/acerca/">Acerca de</a>
+          </div>
+        </details>
       </nav>
     </div>
   </div>
 </header>
+<script>
+  // Cierra el menú "Más" al tocar fuera de él o al apretar Escape.
+  (function () {
+    var d = document.querySelector(".nav__mas");
+    if (!d) return;
+    document.addEventListener("click", function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
+  })();
+</script>
 
   <main id="contenido" class="envoltorio">
     
@@ -50,11 +64,18 @@
 </nav>
 
     <h1 class="post__titulo post__titulo--centro">Idiomas</h1>
-<p class="intro-centro">Los idiomas que estoy estudiando. Entrá a uno para ver todos sus posts.</p>
-<p class="contador" aria-live="polite"><strong>0</strong> idiomas</p>
-<ul class="fichas">
-  <li><p>Todavía no hay posts de idiomas.</p></li>
-</ul>
+<nav class="selector" aria-label="Vistas de idiomas">
+  <div class="selector__grupo">
+    <span class="selector__etiqueta" id="selector-idioma">Idioma</span>
+    <div class="selector__opciones" role="group" aria-labelledby="selector-idioma">
+      <a href="/idiomas/" aria-current="page">Todos</a>
+    </div>
+  </div>
+</nav>
+
+<p class="intro-centro">Todo lo que escribí sobre los idiomas que estoy estudiando, del más nuevo al más viejo. Elegí un idioma para ver sólo los suyos.</p>
+<p class="contador" aria-live="polite"><strong>0</strong> posts</p>
+<p>Todavía no hay posts de idiomas.</p>
 
   </main>
   <footer class="pie">

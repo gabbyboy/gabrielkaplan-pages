@@ -302,6 +302,65 @@ img {
   background: var(--paper-deep);
 }
 
+/* Menú desplegable "Más" (Tags, Archivos y Acerca de). En el celular, abierto, ocupa una fila completa
+   debajo de los demás links; en pantallas grandes es un panel flotante alineado a la derecha. */
+.nav__mas {
+  position: relative;
+}
+
+.nav__mas[open] {
+  flex-basis: 100%;
+}
+
+.nav__mas summary {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 2px solid transparent;
+  border-radius: 2px;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.nav__mas summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav__mas summary::after {
+  content: " ▾";
+}
+
+.nav__mas[open] summary::after {
+  content: " ▴";
+}
+
+.nav__mas summary:hover,
+.nav__mas summary:focus-visible,
+.nav__mas[open] summary {
+  color: var(--clay);
+  background: var(--paper-warm);
+  border-bottom-color: var(--clay);
+}
+
+.nav__mas summary[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 500;
+  background: var(--paper-deep);
+  border-bottom-color: var(--clay);
+}
+
+.nav__panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.25rem;
+  margin-top: 0.25rem;
+}
+
 /* ---- Migas de pan ---- */
 .migas {
   margin-bottom: 2rem;
@@ -1687,6 +1746,26 @@ img {
     gap: 0.25rem 0.5rem;
   }
 
+  .nav__mas[open] {
+    flex-basis: auto;
+  }
+
+  .nav__panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+    flex-direction: column;
+    gap: 0;
+    min-width: 11rem;
+    margin-top: 0.4rem;
+    padding: 0.4rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--paper);
+    box-shadow: 0 6px 18px rgba(26, 23, 20, 0.12);
+  }
+
   .archivo__lista li {
     grid-template-columns: 6.5rem 1fr auto;
   }
@@ -1742,4 +1821,45 @@ img {
   * {
     transition: none !important;
   }
+}
+
+/* ---- Categorías de un idioma ---- */
+.categoria {
+  margin-top: 2.5rem;
+}
+
+.categoria__titulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.categoria__numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--clay);
+  color: var(--paper);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.categoria__n {
+  margin-left: auto;
+  color: var(--ink-quiet);
+  font-family: var(--f-texto, inherit);
+  font-size: 0.8rem;
+  font-weight: 400;
 }

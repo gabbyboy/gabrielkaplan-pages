@@ -19,7 +19,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=1794148678133">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1794239190242">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -32,13 +32,27 @@
         <a href="/discos/">Discos</a>
         <a href="/juegos/">Juegos</a>
         <a href="/idiomas/">Idiomas</a>
-        <a href="/tags/" aria-current="page">Tags</a>
-        <a href="/archivos/">Archivos</a>
-        <a href="/acerca/">Acerca de</a>
+        <details class="nav__mas">
+          <summary aria-current="page">Más</summary>
+          <div class="nav__panel">
+            <a href="/tags/" aria-current="page">Tags</a>
+            <a href="/archivos/">Archivos</a>
+            <a href="/acerca/">Acerca de</a>
+          </div>
+        </details>
       </nav>
     </div>
   </div>
 </header>
+<script>
+  // Cierra el menú "Más" al tocar fuera de él o al apretar Escape.
+  (function () {
+    var d = document.querySelector(".nav__mas");
+    if (!d) return;
+    document.addEventListener("click", function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
+  })();
+</script>
 
   <main id="contenido" class="envoltorio">
     
@@ -50,33 +64,143 @@
 </nav>
 
     <h1 class="post__titulo post__titulo--centro">Tags</h1>
-<ul class="chips chips--centro chips--tags">
-  <li><a href="/tags/alemania/">Alemania <span class="chips__n">1</span></a></li>
-  <li><a href="/tags/argentina/">Argentina <span class="chips__n">4</span></a></li>
-  <li><a href="/tags/clamp/">CLAMP <span class="chips__n">3</span></a></li>
-  <li><a href="/tags/clover/">Clover <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/eeuu/">EEUU <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/finlandia/">Finlandia <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/fushigi-no-kuni-no-miyuki-chan/">Fushigi no Kuni no Miyuki-chan <span class="chips__n">1</span></a></li>
-  <li><a href="/tags/haruhiko-mikimoto/">Haruhiko Mikimoto <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/kiss/">Kiss <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/lost-brain/">Lost+Brain <span class="chips__n">3</span></a></li>
-  <li><a href="/tags/macross-7-trash/">Macross 7 Trash <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/neon-genesis-evangelion/">Neon Genesis Evangelion <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/nintendo/">Nintendo <span class="chips__n">1</span></a></li>
-  <li><a href="/tags/queen/">Queen <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/rammstein/">Rammstein <span class="chips__n">1</span></a></li>
-  <li><a href="/tags/ranma/">Ranma ½ <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/reino-unido/">Reino Unido <span class="chips__n">3</span></a></li>
-  <li><a href="/tags/rumiko-takahashi/">Rumiko Takahashi <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/soda-stereo/">Soda Stereo <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/sonata-arctica/">Sonata Arctica <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/sui-generis/">Sui Generis <span class="chips__n">2</span></a></li>
-  <li><a href="/tags/super-nintendo/">Super Nintendo <span class="chips__n">1</span></a></li>
-  <li><a href="/tags/the-beatles/">The Beatles <span class="chips__n">1</span></a></li>
-  <li><a href="/tags/tsuzuku-yabuno/">Tsuzuku Yabuno <span class="chips__n">3</span></a></li>
-  <li><a href="/tags/yoshiyuki-sadamoto/">Yoshiyuki Sadamoto <span class="chips__n">2</span></a></li>
-</ul>
+<section class="categoria" aria-labelledby="letra-1">
+  <h2 class="categoria__titulo" id="letra-1">
+    <span class="categoria__numero">A</span>
+    <span class="categoria__n">2 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/alemania/">Alemania <span class="chips__n">1</span></a></li>
+    <li><a href="/tags/argentina/">Argentina <span class="chips__n">4</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-2">
+  <h2 class="categoria__titulo" id="letra-2">
+    <span class="categoria__numero">C</span>
+    <span class="categoria__n">2 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/clamp/">CLAMP <span class="chips__n">3</span></a></li>
+    <li><a href="/tags/clover/">Clover <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-3">
+  <h2 class="categoria__titulo" id="letra-3">
+    <span class="categoria__numero">E</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/eeuu/">EEUU <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-4">
+  <h2 class="categoria__titulo" id="letra-4">
+    <span class="categoria__numero">F</span>
+    <span class="categoria__n">2 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/finlandia/">Finlandia <span class="chips__n">2</span></a></li>
+    <li><a href="/tags/fushigi-no-kuni-no-miyuki-chan/">Fushigi no Kuni no Miyuki-chan <span class="chips__n">1</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-5">
+  <h2 class="categoria__titulo" id="letra-5">
+    <span class="categoria__numero">H</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/haruhiko-mikimoto/">Haruhiko Mikimoto <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-6">
+  <h2 class="categoria__titulo" id="letra-6">
+    <span class="categoria__numero">K</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/kiss/">Kiss <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-7">
+  <h2 class="categoria__titulo" id="letra-7">
+    <span class="categoria__numero">L</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/lost-brain/">Lost+Brain <span class="chips__n">3</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-8">
+  <h2 class="categoria__titulo" id="letra-8">
+    <span class="categoria__numero">M</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/macross-7-trash/">Macross 7 Trash <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-9">
+  <h2 class="categoria__titulo" id="letra-9">
+    <span class="categoria__numero">N</span>
+    <span class="categoria__n">2 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/neon-genesis-evangelion/">Neon Genesis Evangelion <span class="chips__n">3</span></a></li>
+    <li><a href="/tags/nintendo/">Nintendo <span class="chips__n">1</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-10">
+  <h2 class="categoria__titulo" id="letra-10">
+    <span class="categoria__numero">Q</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/queen/">Queen <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-11">
+  <h2 class="categoria__titulo" id="letra-11">
+    <span class="categoria__numero">R</span>
+    <span class="categoria__n">4 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/rammstein/">Rammstein <span class="chips__n">1</span></a></li>
+    <li><a href="/tags/ranma/">Ranma ½ <span class="chips__n">2</span></a></li>
+    <li><a href="/tags/reino-unido/">Reino Unido <span class="chips__n">4</span></a></li>
+    <li><a href="/tags/rumiko-takahashi/">Rumiko Takahashi <span class="chips__n">2</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-12">
+  <h2 class="categoria__titulo" id="letra-12">
+    <span class="categoria__numero">S</span>
+    <span class="categoria__n">4 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/soda-stereo/">Soda Stereo <span class="chips__n">2</span></a></li>
+    <li><a href="/tags/sonata-arctica/">Sonata Arctica <span class="chips__n">2</span></a></li>
+    <li><a href="/tags/sui-generis/">Sui Generis <span class="chips__n">2</span></a></li>
+    <li><a href="/tags/super-nintendo/">Super Nintendo <span class="chips__n">1</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-13">
+  <h2 class="categoria__titulo" id="letra-13">
+    <span class="categoria__numero">T</span>
+    <span class="categoria__n">2 tags</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/the-beatles/">The Beatles <span class="chips__n">2</span></a></li>
+    <li><a href="/tags/tsuzuku-yabuno/">Tsuzuku Yabuno <span class="chips__n">3</span></a></li>
+  </ul>
+</section>
+<section class="categoria" aria-labelledby="letra-14">
+  <h2 class="categoria__titulo" id="letra-14">
+    <span class="categoria__numero">Y</span>
+    <span class="categoria__n">1 tag</span>
+  </h2>
+  <ul class="chips chips--tags">
+    <li><a href="/tags/yoshiyuki-sadamoto/">Yoshiyuki Sadamoto <span class="chips__n">3</span></a></li>
+  </ul>
+</section>
 
   </main>
   <footer class="pie">

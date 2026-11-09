@@ -21,7 +21,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=1794148678133">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1794239190242">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -34,13 +34,27 @@
         <a href="/discos/">Discos</a>
         <a href="/juegos/" aria-current="page">Juegos</a>
         <a href="/idiomas/">Idiomas</a>
-        <a href="/tags/">Tags</a>
-        <a href="/archivos/">Archivos</a>
-        <a href="/acerca/">Acerca de</a>
+        <details class="nav__mas">
+          <summary>Más</summary>
+          <div class="nav__panel">
+            <a href="/tags/">Tags</a>
+            <a href="/archivos/">Archivos</a>
+            <a href="/acerca/">Acerca de</a>
+          </div>
+        </details>
       </nav>
     </div>
   </div>
 </header>
+<script>
+  // Cierra el menú "Más" al tocar fuera de él o al apretar Escape.
+  (function () {
+    var d = document.querySelector(".nav__mas");
+    if (!d) return;
+    document.addEventListener("click", function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
+  })();
+</script>
 
   <main id="contenido" class="envoltorio">
     

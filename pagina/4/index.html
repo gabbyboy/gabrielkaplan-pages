@@ -19,7 +19,7 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=1794148678133">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1794239190242">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -32,18 +32,64 @@
         <a href="/discos/">Discos</a>
         <a href="/juegos/">Juegos</a>
         <a href="/idiomas/">Idiomas</a>
-        <a href="/tags/">Tags</a>
-        <a href="/archivos/">Archivos</a>
-        <a href="/acerca/">Acerca de</a>
+        <details class="nav__mas">
+          <summary>Más</summary>
+          <div class="nav__panel">
+            <a href="/tags/">Tags</a>
+            <a href="/archivos/">Archivos</a>
+            <a href="/acerca/">Acerca de</a>
+          </div>
+        </details>
       </nav>
     </div>
   </div>
 </header>
+<script>
+  // Cierra el menú "Más" al tocar fuera de él o al apretar Escape.
+  (function () {
+    var d = document.querySelector(".nav__mas");
+    if (!d) return;
+    document.addEventListener("click", function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
+  })();
+</script>
 
   <main id="contenido" class="envoltorio">
     
 
     <h1 class="etiqueta etiqueta--titulo">Últimos posts</h1>
+<article class="entrada entrada--tomo">
+  <a class="entrada__imagen" href="/posts/clover-tomo-01/" tabindex="-1" aria-hidden="true"><img src="/assets/img/posts/mangas/clover/01.jpg" alt="" loading="lazy"></a>
+  <div class="entrada__texto">
+    <p class="etiqueta"><a href="/mangas/clover/">Clover</a> · Tomo 1 ·
+      <time datetime="2026-10-19">19/10/2026</time>
+    </p>
+    <h2 class="entrada__titulo"><a href="/posts/clover-tomo-01/">Clover, tomo 1</a></h2>
+    <p class="entrada__resumen">Kazuhiko, un ex militar, acepta un encargo de la general Ko: entregar a Suu, una chica con alas mecánicas, a un lugar que ella dice que es el Fairy Park. En el camino los persiguen los soldados azaianos, los Xiao Mao y el militar Bols.</p>
+    <ul class="chips chips--tags chips--chicos" aria-label="Tags">
+      <li><a href="/tags/clamp/">CLAMP</a></li>
+      <li><a href="/tags/clover/">Clover</a></li>
+    </ul>
+    <p class="etiqueta entrada__numero">Manga leído número: 6</p>
+  </div>
+</article>
+
+<article class="entrada entrada--tomo">
+  <a class="entrada__imagen" href="/posts/macross-7-trash-tomo-01/" tabindex="-1" aria-hidden="true"><img src="/assets/img/posts/mangas/macross-7-trash/01.jpg" alt="" loading="lazy"></a>
+  <div class="entrada__texto">
+    <p class="etiqueta"><a href="/mangas/macross-7-trash/">Macross 7 Trash</a> · Tomo 1 ·
+      <time datetime="2026-10-16">16/10/2026</time>
+    </p>
+    <h2 class="entrada__titulo"><a href="/posts/macross-7-trash-tomo-01/">Macross 7 Trash, tomo 1</a></h2>
+    <p class="entrada__resumen">Siva Midou, un chico de diecisiete años que juega al T-Crush con patines aéreos, salva por casualidad a la piloto retirada Mahara de un atentado. Ella lo pone a prueba con la ayuda de Mobard, se convierte en su entrenadora y termina el tomo con una carrera entre los dos en la que Siva queda herido.</p>
+    <ul class="chips chips--tags chips--chicos" aria-label="Tags">
+      <li><a href="/tags/haruhiko-mikimoto/">Haruhiko Mikimoto</a></li>
+      <li><a href="/tags/macross-7-trash/">Macross 7 Trash</a></li>
+    </ul>
+    <p class="etiqueta entrada__numero">Manga leído número: 5</p>
+  </div>
+</article>
+
 <article class="entrada entrada--tomo entrada--disco">
   <a class="entrada__imagen" href="/posts/rammstein-herzeleid/" tabindex="-1" aria-hidden="true"><img src="/assets/img/posts/discos/rammstein/herzeleid.jpg" alt="" loading="lazy"></a>
   <div class="entrada__texto">
@@ -89,38 +135,6 @@
       <li><a href="/tags/finlandia/">Finlandia</a></li>
     </ul>
     <p class="etiqueta entrada__numero">Disco escuchado número: 5</p>
-  </div>
-</article>
-
-<article class="entrada entrada--tomo">
-  <a class="entrada__imagen" href="/posts/neon-genesis-evangelion-tomo-01/" tabindex="-1" aria-hidden="true"><img src="/assets/img/posts/mangas/neon-genesis-evangelion/01.jpg" alt="" loading="lazy"></a>
-  <div class="entrada__texto">
-    <p class="etiqueta"><a href="/mangas/neon-genesis-evangelion/">Neon Genesis Evangelion</a> · Tomo 1 ·
-      <time datetime="2026-10-13">13/10/2026</time>
-    </p>
-    <h2 class="entrada__titulo"><a href="/posts/neon-genesis-evangelion-tomo-01/">Neon Genesis Evangelion, tomo 1</a></h2>
-    <p class="entrada__resumen">Shinji Ikari llega a Tokio-3 llamado por su padre y descubre que quiere que pilotee la Unidad 01 contra un Ángel. Tras negarse y aceptar al ver a Rei herida, el Eva casi lo mata hasta que se activa sola, destruye al Ángel y Shinji termina llorando junto a Misato.</p>
-    <ul class="chips chips--tags chips--chicos" aria-label="Tags">
-      <li><a href="/tags/yoshiyuki-sadamoto/">Yoshiyuki Sadamoto</a></li>
-      <li><a href="/tags/neon-genesis-evangelion/">Neon Genesis Evangelion</a></li>
-    </ul>
-    <p class="etiqueta entrada__numero">Manga leído número: 4</p>
-  </div>
-</article>
-
-<article class="entrada entrada--tomo entrada--disco">
-  <a class="entrada__imagen" href="/posts/soda-stereo-soda-stereo/" tabindex="-1" aria-hidden="true"><img src="/assets/img/posts/discos/soda-stereo/soda-stereo.jpg" alt="" loading="lazy"></a>
-  <div class="entrada__texto">
-    <p class="etiqueta"><a href="/discos/soda-stereo/">Soda Stereo</a> · Disco de 1984 ·
-      <time datetime="2026-10-12">12/10/2026</time>
-    </p>
-    <h2 class="entrada__titulo"><a href="/posts/soda-stereo-soda-stereo/">Soda Stereo - Soda Stereo</a></h2>
-    <p class="entrada__resumen">El debut de Soda Stereo, producido por Federico Moura de Virus: new wave bailable, ironía y un poco de humor.</p>
-    <ul class="chips chips--tags chips--chicos" aria-label="Tags">
-      <li><a href="/tags/soda-stereo/">Soda Stereo</a></li>
-      <li><a href="/tags/argentina/">Argentina</a></li>
-    </ul>
-    <p class="etiqueta entrada__numero">Disco escuchado número: 4</p>
   </div>
 </article>
 
