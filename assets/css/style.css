@@ -1058,7 +1058,7 @@ img {
 
 /* En el celular, en los listados de series, bandas, tomos, discos y juegos la imagen va arriba, a
    todo el ancho, y no al costado. Las verticales (tomos) se muestran cuadradas, recortadas sin
-   deformar; las cuadradas ya lo son; la del juego conserva su 3:4. */
+   deformar; las cuadradas ya lo son; la del juego también es cuadrada. */
 @media (max-width: 39.99rem) {
   .ficha--con-imagen {
     display: block;
@@ -1296,12 +1296,14 @@ img {
 
 /* ---- Juegos ---- */
 /* Portadas de juegos: de tamaño variable, así que se ven enteras sobre un fondo. */
+/* Cuadradas, como las de los discos; las que no lo son se recortan sin deformar (parte de arriba). */
 .ficha--juego .ficha__imagen {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
 }
 
 .ficha--juego .ficha__imagen img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .ficha__hasta,

@@ -36,7 +36,9 @@
   <url><loc>https://gabrielkaplan.net/juegos/sagas/ultimos/</loc></url>
   <url><loc>https://gabrielkaplan.net/juegos/rompecabezas/</loc></url>
   <url><loc>https://gabrielkaplan.net/juegos/rompecabezas/ultimos/</loc></url>
+  <url><loc>https://gabrielkaplan.net/juegos/consola/mega-drive/</loc></url>
   <url><loc>https://gabrielkaplan.net/juegos/consola/super-nintendo/</loc></url>
+  <url><loc>https://gabrielkaplan.net/juegos/saga/sonic/</loc></url>
   <url><loc>https://gabrielkaplan.net/juegos/saga/super-mario/</loc></url>
   <url><loc>https://gabrielkaplan.net/archivos/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/</loc></url>
@@ -51,6 +53,7 @@
   <url><loc>https://gabrielkaplan.net/tags/kiss/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/lost-brain/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/macross-7-trash/</loc></url>
+  <url><loc>https://gabrielkaplan.net/tags/mega-drive/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/neon-genesis-evangelion/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/nintendo/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/queen/</loc></url>
@@ -58,6 +61,7 @@
   <url><loc>https://gabrielkaplan.net/tags/ranma/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/reino-unido/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/rumiko-takahashi/</loc></url>
+  <url><loc>https://gabrielkaplan.net/tags/sega/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/soda-stereo/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/sonata-arctica/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/sui-generis/</loc></url>
@@ -65,32 +69,33 @@
   <url><loc>https://gabrielkaplan.net/tags/the-beatles/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/tsuzuku-yabuno/</loc></url>
   <url><loc>https://gabrielkaplan.net/tags/yoshiyuki-sadamoto/</loc></url>
+  <url><loc>https://gabrielkaplan.net/posts/sonic-the-hedgehog/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/rammstein-sehnsucht/</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/neon-genesis-evangelion-tomo-03/</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/the-beatles-with-the-beatles/</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/lost-brain-tomo-03/</loc><lastmod>2026-11-08</lastmod></url>
-  <url><loc>https://gabrielkaplan.net/posts/sonata-arctica-silence/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/clover-tomo-02/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://gabrielkaplan.net/posts/sonata-arctica-silence/</loc><lastmod>2026-11-07</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/super-mario-world/</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/macross-7-trash-tomo-02/</loc><lastmod>2026-11-01</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/soda-stereo-nada-personal/</loc><lastmod>2026-10-30</lastmod></url>
-  <url><loc>https://gabrielkaplan.net/posts/sui-generis-confesiones-de-invierno/</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/neon-genesis-evangelion-tomo-02/</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://gabrielkaplan.net/posts/queen-queen-ii/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://gabrielkaplan.net/posts/sui-generis-confesiones-de-invierno/</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/lost-brain-tomo-02/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://gabrielkaplan.net/posts/queen-queen-ii/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/the-great-gatsby/</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/ranma-tomo-02/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/kiss-hotter-than-hell/</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/clover-tomo-01/</loc><lastmod>2026-10-19</lastmod></url>
-  <url><loc>https://gabrielkaplan.net/posts/rammstein-herzeleid/</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/macross-7-trash-tomo-01/</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://gabrielkaplan.net/posts/rammstein-herzeleid/</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/the-beatles-please-please-me/</loc><lastmod>2026-10-15</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/sonata-arctica-ecliptica/</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/neon-genesis-evangelion-tomo-01/</loc><lastmod>2026-10-13</lastmod></url>
-  <url><loc>https://gabrielkaplan.net/posts/soda-stereo-soda-stereo/</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/lost-brain-tomo-01/</loc><lastmod>2026-10-12</lastmod></url>
-  <url><loc>https://gabrielkaplan.net/posts/sui-generis-vida/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://gabrielkaplan.net/posts/soda-stereo-soda-stereo/</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/fushigi-no-kuni-no-miyuki-chan-tomo-01/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://gabrielkaplan.net/posts/sui-generis-vida/</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/queen-queen/</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/kiss-kiss/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://gabrielkaplan.net/posts/ranma-tomo-01/</loc><lastmod>2026-10-08</lastmod></url>
